@@ -10,7 +10,7 @@
 ### 1. 下載專案
 將此專案 Clone 到本地端：
 ```bash
-git clone [https://github.com/YiCian-Chen/chat-room-mvp.git](https://github.com/YiCian-Chen/chat-room-mvp.git)
+git clone https://github.com/YiCian-Chen/chat-room-mvp.git
 cd chat-room-mvp
 
 ```
