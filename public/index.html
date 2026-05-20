@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多對多聊天室 MVP</title>
+    <style>
+        /* 基礎版面設定 */
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        /* 聊天區塊預設隱藏，加入房間後才顯示 */
+        #chat-section { display: none; }
+        
+        /* 訊息顯示區塊 */
+        #messages { border: 1px solid #ccc; height: 300px; overflow-y: auto; padding: 10px; margin-bottom: 10px; border-radius: 4px; background: #fafafa; }
+        .message { margin-bottom: 8px; padding: 5px; border-radius: 4px; }
+        .my-msg { color: #0056b3; font-weight: bold; text-align: right; }
+        .other-msg { color: #28a745; text-align: left; }
+        
+        /* 輸入框與按鈕 */
+        input { padding: 8px; margin-bottom: 10px; width: calc(100% - 20px); border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 8px 16px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💬 聊天室原型</h1>
+
+        <!-- 登入與選擇房間區塊 -->
+        <div id="login-section">
+            <input type="text" id="username" placeholder="請輸入你的名字 (例如: Alex)" />
+            <input type="text" id="room" placeholder="請輸入房間代碼 (例如: 101)" />
+            <button id="join-btn">加入房間</button>
+        </div>
+
+        <!-- 聊天室區塊 -->
+        <div id="chat-section">
+            <h3 id="room-title"></h3>
+            <div id="messages"></div>
+            <div style="display: flex; gap: 5px;">
+                <input type="text" id="msg-input" placeholder="輸入訊息..." style="margin-bottom: 0;" />
+                <button id="send-btn" style="width: 80px;">發送</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入 Socket.IO 客戶端與我們寫的 JS 邏輯 -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
